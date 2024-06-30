@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/cart.css}" />
+</head>
+<body class="cart-body">
+<header class="bg-dark text-white p-3 fixed-header">
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <a href="/logout" class="btn btn-primary custom-button">Logout</a>
+        <a href="/games" class="btn btn-secondary custom-button">Back to Games</a>
+    </div>
+</header>
+<main class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:if="${cart.games.size() == 0}">
+                <p class="message-intense">Your cart is empty.</p>
+            </div>
+            <div th:if="${cart.games.size() > 0}">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Title</th>
+                        <th>Platform</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="game : ${cart.games}">
+                        <td th:text="${game.title}">Game Title</td>
+                        <td th:text="${game.platform}">Platform</td>
+                        <td>€<span th:text="${game.price}">0.00</span></td>
+                        <td>
+                            <form th:action="@{/cart/remove}" method="post" onsubmit="return confirmRemove(this);">
+                                <input type="hidden" th:value="${game.id}" name="gameId"/>
+                                <button type="submit" class="btn btn-danger custom-button">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="message-intense">Total: €<span th:text="${total}">0.00</span></p>
+                <form th:action="@{/cart/checkout}" method="post">
+                    <button type="submit" class="btn btn-success custom-button">Buy</button>
+                </form>
+                <div class="payment-icons mt-4">
+                    <img src="/img/payment_img.png" alt="Payment Methods" class="payment-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function confirmRemove(form) {
+        console.log("Form submitted: ", form);
+        return true;
+    }
+</script>
+</body>
+</html>

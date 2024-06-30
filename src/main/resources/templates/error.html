@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="icon" href="../img/favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/error.css}" />
+</head>
+<body class="bg-light">
+<div class="container error-container">
+    <img src="/img/error_img.png" alt="Error Image" class="error-image mb-4">
+    <div class="alert alert-danger">
+        <h1 class="display-4">Oops!</h1>
+        <p class="lead" th:text="${err}"></p>
+        <hr class="my-4">
+        <p>Hmmm... If you think this is a mistake, please contact support.</p>
+        <a class="btn btn-primary btn-lg" href="/" role="button">Go to Home</a>
+    </div>
+</div>
+</body>
+</html>

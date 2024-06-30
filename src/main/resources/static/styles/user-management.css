@@ -1,0 +1,95 @@
+.admin-body {
+    background-image: url('/img/admin_img.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #343a40;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #343a40;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-family: 'Papyrus', cursive;
+    color: #ffffff;
+    text-shadow: 2px 2px #007bff;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-family: 'Papyrus', sans-serif;
+    color: #f8f9fa;
+    font-weight: bold;
+}
+
+.main-content {
+    padding-top: 150px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #343a40;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    margin: 5px;
+}
+
+.text-danger {
+    color: red;
+    font-weight: bold;
+}
+
+form .form-group label {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+form .form-group input {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+}

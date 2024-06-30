@@ -1,0 +1,104 @@
+.cart-body {
+    background-image: url('/img/cart_img.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #343a40;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #343a40;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-family: 'Papyrus', cursive;
+    color: #ffffff;
+    text-shadow: 2px 2px #007bff;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.table {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+}
+
+thead.thead-dark th {
+    background-color: #343a40;
+    color: white;
+}
+
+tbody tr {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+}
+
+.custom-button {
+    font-family: 'Papyrus', sans-serif !important;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.message-intense {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px #000000;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-icons .fab {
+    color: white;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-media-icons .fab:hover {
+    color: #007bff;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.payment-icons img.payment-image {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.payment-icons img.payment-image:hover {
+    transform: scale(1.1);
+}
+
+main {
+    padding-top: 150px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - Games Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/game-management.css}" />
+</head>
+<body class="admin-body admin-page">
+<header class="bg-dark text-white p-3 d-flex justify-content-between align-items-center fixed-header">
+    <div>
+        <h1>Games Management</h1>
+    </div>
+    <div>
+        <a href="/logout" class="btn btn-primary custom-button">Logout</a>
+        <a href="/admin/users" class="btn btn-secondary custom-button">Manage Users</a>
+    </div>
+</header>
+<main class="main-content">
+    <div class="container">
+        <h2>Games</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Platform</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="game : ${games}">
+                <td th:text="${game.id}">1</td>
+                <td th:text="${game.title}">Game Title</td>
+                <td th:text="${game.platform}">Platform</td>
+                <td th:text="${game.price}">0.00</td>
+                <td><img th:src="@{'/img/' + ${game.imageName}}" alt="Game Image" style="width: 50px; height: 50px;"/></td>
+                <td>
+                    <form th:action="@{/admin/games/update}" method="post">
+                        <input type="hidden" th:value="${game.id}" name="id"/>
+                        <input type="text" th:value="${game.title}" name="title"/>
+                        <input type="text" th:value="${game.platform}" name="platform"/>
+                        <input type="text" th:value="${game.price}" name="price"/>
+                        <input type="text" th:value="${game.imageName}" name="imageName"/>
+                        <button type="submit" class="btn btn-warning">Update</button>
+                    </form>
+                    <form th:action="@{/admin/games/delete/{id}(id=${game.id})}" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Add Game</h2>
+        <form th:action="@{/admin/games}" th:object="${gameDTO}" method="post">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" class="form-control" th:field="*{title}" />
+                <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="alert alert-danger"></div>
+            </div>
+            <div class="form-group">
+                <label for="platform">Platform:</label>
+                <input type="text" id="platform" name="platform" class="form-control" th:field="*{platform}" />
+                <div th:if="${#fields.hasErrors('platform')}" th:errors="*{platform}" class="alert alert-danger"></div>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" class="form-control" th:field="*{price}" />
+                <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="alert alert-danger"></div>
+            </div>
+            <div class="form-group">
+                <label for="imageName">Image Name:</label>
+                <input type="text" id="imageName" name="imageName" class="form-control" th:field="*{imageName}" />
+                <div th:if="${#fields.hasErrors('imageName')}" th:errors="*{imageName}" class="alert alert-danger"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Game</button>
+        </form>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

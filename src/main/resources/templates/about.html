@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About Us - Masterpeakers</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/about.css}" />
+</head>
+<body class="about-body">
+<header class="fixed-header bg-dark text-white p-3 d-flex justify-content-between align-items-center">
+    <div>
+        <h1>About Us</h1>
+    </div>
+    <div>
+        <a th:if="${!isLoggedIn}" href="/" class="btn btn-primary custom-button">Home</a>
+        <a href="/games" class="btn btn-secondary custom-button">Games</a>
+        <a href="/contact" class="btn btn-info custom-button">Contact Us</a>
+        <a th:if="${isLoggedIn}" href="/logout" class="btn btn-secondary custom-button">Logout</a>
+    </div>
+</header>
+<main class="container text-container">
+    <div class="content">
+        <h2>"Nothing is easy but nothing is impossible"...</h2>
+        <p>That's what our founder said before recruiting us. His inspiration was dedicated
+            to teamwork and innovative ideas. We all wanted something advanced, something exclusive. Anyway,
+            gaming technology seems to develop faster than light. That was a challenge for us, the idea-hunters.
+            So that was it!</p>
+        <p>Founded in 2024, our team worked hard with passion, so now
+            we're able to serve you the top experience in newest video-games.</p>
+        <p>Focused in extended research according to customer's service, reliability of the product and era's demands,
+            we can now proudly claim that the No1 in gaming experience is Masterpeakers. Including all platforms
+            and a huge collection of games, joy can be indescribable!</p>
+        <h4>Recruiting never stops. The reason...?</h4>
+        <br>
+        <h3> Gamers all around the world, "peak" from the masters!</h3>
+        <br>
+        <br>
+        <div class="footer-container">
+            <p>If you have any questions, don't hesitate to contact us. </p>
+            <footer>The Masterpeakers team</footer>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

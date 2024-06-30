@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home - Masterpeakers</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/home.css}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</head>
+<body class="home-body">
+<header class="fixed-header bg-dark text-white p-3 d-flex justify-content-between align-items-center flex-column">
+    <div class="d-flex justify-content-between w-100">
+        <div>
+            <h1>Welcome to Masterpeakers!</h1>
+        </div>
+        <div>
+            <a href="/about" class="btn btn-info custom-button">About</a>
+            <a href="/login" class="btn btn-primary custom-button">Login</a>
+            <a href="/register" class="btn btn-secondary custom-button">Register</a>
+            <a href="/contact" class="btn btn-info custom-button">Contact Us</a>
+        </div>
+    </div>
+    <div class="social-media-icons mt-2">
+        <a href="https://facebook.com" target="_blank" class="mx-2">
+            <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="mx-2">
+            <i class="fab fa-twitter fa-2x"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="mx-2">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+    </div>
+</header>
+<main class="container">
+    <h2>Check our stuff</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" th:each="game : ${games}">
+            <div class="card">
+                <img th:src="@{'/img/' + ${game.imageName}}" alt="Game Image" class="card-img-top game-image"/>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${game.title}">Game Title</h5>
+                    <p class="card-text">Platform: <span th:text="${game.platform}">Platform</span></p>
+                    <p class="card-text">Price: €<span th:text="${game.price}">0.00</span></p>
+                    <form th:action="@{/games/purchase}" method="post">
+                        <input type="hidden" th:value="${game.id}" name="gameId"/>
+                        <button type="submit" class="btn btn-success custom-button">Buy</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bg-dark text-white p-3 mt-4 d-flex justify-content-center">
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

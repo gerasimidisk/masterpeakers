@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - User Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/user-management.css}" />
+</head>
+<body class="admin-body admin-page">
+<header class="bg-dark text-white p-3 d-flex justify-content-between align-items-center fixed-header">
+    <div>
+        <h1>User Management</h1>
+    </div>
+    <div>
+        <a href="/logout" class="btn btn-primary custom-button">Logout</a>
+        <a href="/admin/games" class="btn btn-secondary custom-button">Manage Games</a>
+    </div>
+</header>
+<main class="main-content">
+    <div class="container">
+        <h2>Users</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}">1</td>
+                <td th:text="${user.username}">Username</td>
+                <td th:text="${user.email}">email@example.com</td>
+                <td th:text="${user.role.name}">Role</td>
+                <td>
+                    <form th:action="@{/admin/users/delete/{id}(id=${user.id})}" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Add User</h2>
+        <form th:action="@{/admin/users}" th:object="${registrationDTO}" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" th:field="*{username}" />
+                <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="alert alert-danger"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" th:field="*{password}" />
+                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" th:field="*{email}" />
+                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+

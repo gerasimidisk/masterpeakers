@@ -1,0 +1,20 @@
+.error-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.error-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.alert {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}

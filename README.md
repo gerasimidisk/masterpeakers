@@ -32,3 +32,6 @@ Administrators can manage users and games with all necessary CRUD functions.
 4. Run the SQL script provided
 5. Build the project: ./gradlew build
 6. Run the application: ./gradlew bootRun
+=======
+# masterpeakers
+

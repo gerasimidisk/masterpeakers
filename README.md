@@ -1,9 +1,9 @@
 So, this is my first attempt of constructing a full-stack web application!
 
 - Small brief
-Masterpeakers is an e-shop that sells games. Here, users, are allowed to view available games, add them to their cart and make purchases! 
-Also, it includes about and contact page. 
-Administrators can manage users and games with all necessary CRUD functions.
+Masterpeakers is an e-shop that sells games. Here, users are allowed to view available games, add them into their cart and perform purchases! 
+Also, it includes "about" and "contact" page. 
+Administrators can manage users and games including all necessary CRUD functions.
 
 - Features
  * User authentication and authorization,
@@ -15,11 +15,13 @@ Administrators can manage users and games with all necessary CRUD functions.
  * Send back an email confirmation to user, about successful purchase
 
 - The technologies i used
+ 
  Backend
  * Java EE
  * Spring Boot 3.3.0
  * Hibernate
  * MySql (Workbench)
+
  Frontend
  * HTML/CSS
  * Thymeleaf

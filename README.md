@@ -21,6 +21,7 @@ Administrators can manage users and games including all necessary CRUD functions
  * Spring Boot 3.3.0
  * Hibernate
  * MySql (Workbench)
+ * Gradle
 
  Frontend
  * HTML/CSS
